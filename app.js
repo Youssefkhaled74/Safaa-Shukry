@@ -1,5 +1,5 @@
 // Add the real public links here when available.
-const config = { phone: '201553678171', youtube: '', email: '' };
+const config = { phone: '201553678171', youtube: 'https://youtu.be/NscQ3lkaeZU?si=W9MOfRQ25b8vRVK6', email: '' };
 const languageButton = document.querySelector('#language');
 function setLanguage(lang) {
   document.documentElement.lang = lang;
@@ -36,6 +36,6 @@ const dialog = document.querySelector('#image-dialog');
 document.querySelectorAll('[data-image]').forEach(button => button.addEventListener('click', () => { const img = document.querySelector('#dialog-image'); img.src = button.dataset.image; img.alt = button.querySelector('img').alt; dialog.showModal(); }));
 document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-if (config.youtube) { document.querySelector('#youtube-link').href = config.youtube; document.querySelector('#youtube-link').dataset.ar = 'شاهد على YouTube ↗'; document.querySelector('#youtube-link').dataset.en = 'Watch on YouTube ↗'; document.querySelector('.muted').hidden = true; }
+if (config.youtube) { document.querySelector('#youtube-link').href = config.youtube; document.querySelector('#youtube-link').dataset.ar = 'شاهد على YouTube ↗'; document.querySelector('#youtube-link').dataset.en = 'Watch on YouTube ↗'; const hint = document.querySelector('.muted'); if (hint) hint.hidden = true; }
 if (config.email) { const container = document.querySelector('#email-contact'); const link = document.createElement('a'); link.href = `mailto:${config.email}`; link.textContent = config.email; container.querySelector('strong').replaceChildren(link); container.querySelector('strong').removeAttribute('data-ar'); container.querySelector('strong').removeAttribute('data-en'); }
 setLanguage(document.documentElement.lang);
